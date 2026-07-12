@@ -1,0 +1,9 @@
+{
+  "documentTitle": "Automation Test Report",
+  "reportName": "Selenium + Cucumber BDD - Execution Dashboard",
+  "theme": "standard",
+  "timelineEnabled": true,
+  "encoding": "UTF-8",
+  "protocol": "https",
+  "offlineMode": false
+}
