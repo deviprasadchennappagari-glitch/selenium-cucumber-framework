@@ -19,7 +19,7 @@ Feature: Google Search
     Then the search results page should be displayed
 
     Examples:
-      | searchTerm          |
+      | searchTerm           |
       | Cucumber BDD         |
       | Java Selenium        |
       | Test Automation      |

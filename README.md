@@ -58,8 +58,8 @@ selenium-cucumber-framework/
 
 ## Prerequisites
 
-- Java 17+
-- Maven 3.8+
+- Java 25+
+- Maven 3.9+
 - Google Chrome (or Firefox/Edge) installed locally — driver binaries are downloaded automatically
 
 ---

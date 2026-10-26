@@ -28,3 +28,4 @@ Thumbs.db
 target/cucumber-reports/
 target/extent-reports/
 target/screenshots/
+test-output/

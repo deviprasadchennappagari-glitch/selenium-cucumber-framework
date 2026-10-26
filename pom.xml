@@ -13,15 +13,14 @@
     <description>Reusable Selenium + Cucumber BDD test automation framework with reporting, screenshots and driver process cleanup</description>
 
     <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
+        <maven.compiler.release>25</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <selenium.version>4.21.0</selenium.version>
         <cucumber.version>7.18.0</cucumber.version>
         <junit.platform.version>1.10.2</junit.platform.version>
         <junit.jupiter.version>5.10.2</junit.jupiter.version>
-        <webdrivermanager.version>5.9.2</webdrivermanager.version>
+        <webdrivermanager.version>6.1.0</webdrivermanager.version>
         <extentreports.version>5.1.1</extentreports.version>
         <extent.adapter.version>1.14.0</extent.adapter.version>
         <slf4j.version>2.0.13</slf4j.version>
@@ -93,7 +92,7 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.13.0</version>
                 <configuration>
-                    <release>17</release>
+                    <release>${maven.compiler.release}</release>
                 </configuration>
             </plugin>
 
