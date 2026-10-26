@@ -51,7 +51,8 @@ selenium-cucumber-framework/
         ├── spark-config.json          # dashboard theme
         ├── junit-platform.properties
         └── features/
-            └── GoogleSearch.feature   # sample BDD scenario
+            ├── GoogleSearch.feature   # Google search sample
+            └── SauceDemoLogin.feature # web app login sample
 ```
 
 ---
@@ -71,11 +72,34 @@ selenium-cucumber-framework/
 git clone <your-repo-url>
 cd selenium-cucumber-framework
 
-# 2. Run the sample test suite
+# 2. Run all sample scenarios
 mvn test
 ```
 
-That's it — Maven will download dependencies, WebDriverManager will fetch the matching ChromeDriver, and the sample Google search scenarios will run.
+That's it — Maven will download dependencies, WebDriverManager will fetch the matching ChromeDriver, and the Google Search and SauceDemo login examples will run.
+
+### Try the web application example
+
+The SauceDemo login scenario demonstrates testing a web application using its public demo site and sample account:
+
+- URL: `https://www.saucedemo.com`
+- Username: `standard_user`
+- Password: `secret_sauce`
+
+Run only this scenario with:
+
+```bash
+mvn test -Dheadless=true -Dcucumber.filter.tags="@saucedemo"
+```
+
+The SauceDemo URL can be overridden for another SauceDemo environment:
+
+```bash
+mvn test -Dheadless=true -Dsaucedemo.url=https://your-app.example.com -Dcucumber.filter.tags="@saucedemo"
+```
+
+For a different application, update the page object's locators and adapt the feature/step definitions to that application's flow.
+The example credentials are public demo credentials only. Use environment variables or GitHub Secrets for credentials belonging to your own application.
 
 ### Run headless (e.g. for CI or a machine without a display)
 
@@ -165,6 +189,7 @@ public class LoginPage extends BasePage {
 |---|---|---|
 | `browser` | `chrome` | `chrome` \| `firefox` \| `edge` |
 | `base.url` | `https://www.google.com` | Application under test |
+| `saucedemo.url` | `https://www.saucedemo.com` | URL used by the SauceDemo login example |
 | `headless` | `false` | Run browser headless |
 | `implicit.wait` | `5` | Implicit wait (seconds) |
 | `explicit.wait` | `15` | Explicit wait used by `BasePage` (seconds) |
@@ -178,7 +203,7 @@ Any property can be overridden without touching the file, e.g. `mvn test -Dbase.
 
 ## Continuous Integration
 
-A ready-to-use GitHub Actions workflow is included at `.github/workflows/tests.yml`. It runs the suite headlessly on every push/PR to `main` and uploads the Extent dashboard, Cucumber report, and screenshots as build artifacts. Adapt the same pattern for Jenkins/GitLab/Azure DevOps if needed — the underlying command is just `mvn test -Dheadless=true`.
+A ready-to-use GitHub Actions workflow is included at `.github/workflows/tests.yml`. It runs the suite headlessly on every push/PR to `master` and uploads the Extent dashboard, Cucumber report, and screenshots as build artifacts. Adapt the same pattern for Jenkins/GitLab/Azure DevOps if needed — the underlying command is just `mvn test -Dheadless=true`.
 
 ---
 
